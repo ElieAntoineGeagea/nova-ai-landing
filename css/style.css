@@ -9,6 +9,7 @@
     --color-light: #f8fafc;
     --color-white: #ffffff;
     --color-text: #1f2937;
+    --color-muted: #64748b;
 
     --space-small: 0.75rem;
     --space-medium: 1.5rem;
@@ -25,11 +26,15 @@ body {
     line-height: 1.6;
     background-color: var(--color-light);
     color: var(--color-text);
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
 }
 
 a {
     text-decoration: none;
 }
+
 header {
     background-color: var(--color-dark);
     padding: var(--space-medium);
@@ -40,6 +45,8 @@ nav {
     flex-direction: column;
     align-items: center;
     gap: var(--space-small);
+    max-width: 70rem;
+    margin: 0 auto;
 }
 
 nav h1 {
@@ -63,6 +70,33 @@ nav h1 {
 .nav-links a:hover {
     color: var(--color-secondary);
 }
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "hero"
+        "features"
+        "how"
+        "contact";
+}
+
+#hero {
+    grid-area: hero;
+}
+
+#features {
+    grid-area: features;
+}
+
+#how-it-works {
+    grid-area: how;
+}
+
+#contact {
+    grid-area: contact;
+}
+
 #hero {
     background: linear-gradient(
         135deg,
@@ -89,7 +123,8 @@ nav h1 {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 2rem;
+    margin: 2rem auto 0;
+    max-width: 22rem;
 }
 
 .hero-buttons a {
@@ -112,4 +147,144 @@ nav h1 {
 
 .hero-buttons a:hover {
     opacity: 0.9;
+}
+
+#features {
+    padding: var(--space-large) var(--space-medium);
+}
+
+#features h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: var(--space-medium);
+    color: var(--color-dark);
+}
+
+.feature-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-medium);
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+.feature-cards article {
+    background-color: var(--color-white);
+    padding: var(--space-medium);
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.08);
+}
+
+.feature-cards h3 {
+    margin-top: 0;
+    color: var(--color-primary);
+}
+
+#how-it-works {
+    background-color: var(--color-white);
+    padding: var(--space-large) var(--space-medium);
+}
+
+#how-it-works h2 {
+    text-align: center;
+    margin-top: 0;
+    color: var(--color-dark);
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-medium);
+    max-width: 70rem;
+    margin: var(--space-medium) auto 0;
+}
+
+.steps article {
+    text-align: center;
+    background-color: var(--color-light);
+    padding: var(--space-medium);
+    border-radius: 0.75rem;
+}
+
+.steps h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+#contact {
+    text-align: center;
+    background-color: #ede9fe;
+    padding: var(--space-large) var(--space-medium);
+}
+
+#contact h2 {
+    margin-top: 0;
+    color: var(--color-dark);
+}
+
+#contact p {
+    max-width: 35rem;
+    margin: 0 auto 1.5rem;
+}
+
+#contact a {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.9rem 1.5rem;
+    border-radius: 0.6rem;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    background-color: #6d28d9;
+}
+
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--space-medium);
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (min-width: 48rem) {
+
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+        max-width: none;
+    }
+
+    .feature-cards {
+        flex-direction: row;
+    }
+
+    .feature-cards article {
+        flex: 1;
+    }
+
+    .steps {
+        flex-direction: row;
+    }
+
+    .steps article {
+        flex: 1;
+    }
+
+    #hero {
+        padding: 6rem 2rem;
+    }
+
+    #hero h2 {
+        font-size: 3rem;
+    }
 }
